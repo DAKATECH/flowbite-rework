@@ -79,8 +79,8 @@ if (typeof window !== 'undefined') {
     window.Collapse = Collapse;
 }
 
-export function initCollapses() {
-    document
+export function initCollapses(parent = document) {
+    parent
         .querySelectorAll('[data-collapse-toggle]')
         .forEach(($triggerEl) => {
             const targetId = $triggerEl.getAttribute('data-collapse-toggle');

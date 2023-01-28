@@ -95,8 +95,8 @@ if (typeof window !== 'undefined') {
     window.Tabs = Tabs;
 }
 
-export function initTabs() {
-    document.querySelectorAll('[data-tabs-toggle]').forEach(($triggerEl) => {
+export function initTabs(parent = document) {
+    parent.querySelectorAll('[data-tabs-toggle]').forEach(($triggerEl) => {
         const tabItems: TabItem[] = [];
         let defaultTabId = null;
         $triggerEl

@@ -121,8 +121,8 @@ if (typeof window !== 'undefined') {
     window.Dial = Dial;
 }
 
-export function initDials() {
-    document.querySelectorAll('[data-dial-init]').forEach(($parentEl) => {
+export function initDials(parent = document) {
+    parent.querySelectorAll('[data-dial-init]').forEach(($parentEl) => {
         const $triggerEl = $parentEl.querySelector('[data-dial-toggle]');
 
         if ($triggerEl) {

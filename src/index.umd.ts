@@ -14,18 +14,22 @@ import Tabs, { initTabs } from './components/tabs';
 import Tooltip, { initTooltips } from './components/tooltip';
 import Events from './dom/events';
 
+export function initAll(parent = document) {
+    initAccordions(parent);
+    initCollapses(parent);
+    initCarousels(parent);
+    initDismisses(parent);
+    initDropdowns(parent);
+    initModals(parent);
+    initDrawers(parent);
+    initTabs(parent);
+    initTooltips(parent);
+    initPopovers(parent);
+    initDials(parent);
+}
+
 const events = new Events('load', [
-    initAccordions,
-    initCollapses,
-    initCarousels,
-    initDismisses,
-    initDropdowns,
-    initModals,
-    initDrawers,
-    initTabs,
-    initTooltips,
-    initPopovers,
-    initDials,
+    () => initAll(),
 ]);
 events.init();
 
@@ -43,3 +47,19 @@ export default {
     Tooltip,
     Events,
 };
+
+// @ts-ignore
+window.flowbite = {
+    initAccordions: initAccordions,
+    initCarousels: initCarousels,
+    initCollapses: initCollapses,
+    initDials: initDials,
+    initDismisses: initDismisses,
+    initDrawers: initDrawers,
+    initDropdowns: initDropdowns,
+    initModals: initModals,
+    initPopovers: initPopovers,
+    initTabs: initTabs,
+    initTooltips: initTooltips,
+    initAll: initAll,
+}

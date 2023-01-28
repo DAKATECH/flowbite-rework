@@ -53,8 +53,8 @@ if (typeof window !== 'undefined') {
     window.Dismiss = Dismiss;
 }
 
-export function initDismisses() {
-    document.querySelectorAll('[data-dismiss-target]').forEach(($triggerEl) => {
+export function initDismisses(parent = document) {
+    parent.querySelectorAll('[data-dismiss-target]').forEach(($triggerEl) => {
         const targetId = $triggerEl.getAttribute('data-dismiss-target');
         const $dismissEl = document.querySelector(targetId);
 

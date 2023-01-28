@@ -227,8 +227,8 @@ if (typeof window !== 'undefined') {
     window.Dropdown = Dropdown;
 }
 
-export function initDropdowns() {
-    document
+export function initDropdowns(parent = document) {
+    parent
         .querySelectorAll('[data-dropdown-toggle]')
         .forEach(($triggerEl) => {
             const dropdownId = $triggerEl.getAttribute('data-dropdown-toggle');
