@@ -236,9 +236,9 @@ const getDrawerInstance = (id: string, instances: DrawerInstance[]) => {
     }
 };
 
-export function initDrawers() {
+export function initDrawers(parent = document) {
     const drawerInstances = [] as DrawerInstance[];
-    document.querySelectorAll('[data-drawer-target]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-drawer-target]').forEach(($triggerEl) => {
         // mandatory
         const drawerId = $triggerEl.getAttribute('data-drawer-target');
         const $drawerEl = document.getElementById(drawerId);
@@ -288,7 +288,7 @@ export function initDrawers() {
         }
     });
 
-    document.querySelectorAll('[data-drawer-toggle]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-drawer-toggle]').forEach(($triggerEl) => {
         const drawerId = $triggerEl.getAttribute('data-drawer-toggle');
         const $drawerEl = document.getElementById(drawerId);
 
@@ -314,7 +314,7 @@ export function initDrawers() {
         }
     });
 
-    document
+    parent
         .querySelectorAll('[data-drawer-dismiss], [data-drawer-hide]')
         .forEach(($triggerEl) => {
             const drawerId = $triggerEl.getAttribute('data-drawer-dismiss')
@@ -341,7 +341,7 @@ export function initDrawers() {
             }
         });
 
-    document.querySelectorAll('[data-drawer-show]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-drawer-show]').forEach(($triggerEl) => {
         const drawerId = $triggerEl.getAttribute('data-drawer-show');
         const $drawerEl = document.getElementById(drawerId);
 

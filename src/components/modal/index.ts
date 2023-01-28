@@ -213,11 +213,11 @@ const getModalInstance = (id: string, instances: ModalInstance[]) => {
     return null;
 };
 
-export function initModals() {
+export function initModals(parent = document) {
     const modalInstances = [] as ModalInstance[];
 
     // initiate modal based on data-modal-target
-    document.querySelectorAll('[data-modal-target]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-modal-target]').forEach(($triggerEl) => {
         const modalId = $triggerEl.getAttribute('data-modal-target');
         const $modalEl = document.getElementById(modalId);
 

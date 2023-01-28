@@ -192,8 +192,8 @@ if (typeof window !== 'undefined') {
     window.Tooltip = Tooltip;
 }
 
-export function initTooltips() {
-    document.querySelectorAll('[data-tooltip-target]').forEach(($triggerEl) => {
+export function initTooltips(parent = document) {
+    parent.querySelectorAll('[data-tooltip-target]').forEach(($triggerEl) => {
         const tooltipId = $triggerEl.getAttribute('data-tooltip-target');
         const $tooltipEl = document.getElementById(tooltipId);
 

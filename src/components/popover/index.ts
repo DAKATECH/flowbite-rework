@@ -209,8 +209,8 @@ if (typeof window !== 'undefined') {
     window.Popover = Popover;
 }
 
-export function initPopovers() {
-    document.querySelectorAll('[data-popover-target]').forEach(($triggerEl) => {
+export function initPopovers(parent = document) {
+    parent.querySelectorAll('[data-popover-target]').forEach(($triggerEl) => {
         const popoverID = $triggerEl.getAttribute('data-popover-target');
         const $popoverEl = document.getElementById(popoverID);
 

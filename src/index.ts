@@ -11,19 +11,23 @@ import { initTooltips } from './components/tooltip';
 import { initPopovers } from './components/popover';
 import { initDials } from './components/dial';
 
+function initAll(parent = document) {
+    initAccordions(parent);
+    initCollapses(parent);
+    initCarousels(parent);
+    initDismisses(parent);
+    initDropdowns(parent);
+    initModals(parent);
+    initDrawers(parent);
+    initTabs(parent);
+    initTooltips(parent);
+    initPopovers(parent);
+    initDials(parent);
+}
+
 // setup events for data attributes
 const events = new Events('load', [
-    initAccordions,
-    initCollapses,
-    initCarousels,
-    initDismisses,
-    initDropdowns,
-    initModals,
-    initDrawers,
-    initTabs,
-    initTooltips,
-    initPopovers,
-    initDials,
+    () => initAll()
 ]);
 events.init();
 
@@ -78,3 +82,4 @@ export { initModals } from './components/modal';
 export { initPopovers } from './components/popover';
 export { initTabs } from './components/tabs';
 export { initTooltips } from './components/tooltip';
+export { initAll };

@@ -32,18 +32,18 @@ const getDatepickerOptions = (datepickerEl) => {
     return options;
 };
 
-export function initDatepickers() {
-    document.querySelectorAll('[datepicker]').forEach(function (datepickerEl) {
+export function initDatepickers(parent = document) {
+    parent.querySelectorAll('[datepicker]').forEach(function (datepickerEl) {
         new Datepicker(datepickerEl, getDatepickerOptions(datepickerEl));
     });
 
-    document
+    parent
         .querySelectorAll('[inline-datepicker]')
         .forEach(function (datepickerEl) {
             new Datepicker(datepickerEl, getDatepickerOptions(datepickerEl));
         });
 
-    document
+    parent
         .querySelectorAll('[date-rangepicker]')
         .forEach(function (datepickerEl) {
             new DateRangePicker(
@@ -53,5 +53,5 @@ export function initDatepickers() {
         });
 }
 
-const events = new Events('DOMContentLoaded', [initDatepickers]);
+const events = new Events('DOMContentLoaded', [() => initDatepickers()]);
 events.init();

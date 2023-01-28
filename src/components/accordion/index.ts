@@ -126,8 +126,8 @@ if (typeof window !== 'undefined') {
     window.Accordion = Accordion;
 }
 
-export function initAccordions() {
-    document.querySelectorAll('[data-accordion]').forEach(($accordionEl) => {
+export function initAccordions(parent = document) {
+    parent.querySelectorAll('[data-accordion]').forEach(($accordionEl) => {
         const alwaysOpen = $accordionEl.getAttribute('data-accordion');
         const activeClasses = $accordionEl.getAttribute('data-active-classes');
         const inactiveClasses = $accordionEl.getAttribute(

@@ -244,8 +244,8 @@ if (typeof window !== 'undefined') {
     window.Carousel = Carousel;
 }
 
-export function initCarousels() {
-    document.querySelectorAll('[data-carousel]').forEach(($carouselEl) => {
+export function initCarousels(parent = document) {
+    parent.querySelectorAll('[data-carousel]').forEach(($carouselEl) => {
         const interval = $carouselEl.getAttribute('data-carousel-interval');
         const slide =
             $carouselEl.getAttribute('data-carousel') === 'slide'
