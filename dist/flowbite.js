@@ -3273,6 +3273,8 @@ var Dropdown = /** @class */ (function () {
     Dropdown.prototype._setupClickOutsideListener = function () {
         var _this = this;
         this._clickOutsideEventListener = function (ev) {
+            if (!ev.isTrusted)
+                return;
             _this._handleClickOutside(ev, _this._targetEl);
         };
         document.body.addEventListener('click', this._clickOutsideEventListener, true);
