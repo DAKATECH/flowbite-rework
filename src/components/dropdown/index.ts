@@ -111,6 +111,8 @@ class Dropdown implements DropdownInterface {
 
     _setupClickOutsideListener() {
         this._clickOutsideEventListener = (ev: MouseEvent) => {
+            if (!ev.isTrusted)
+                return;
             this._handleClickOutside(ev, this._targetEl);
         };
         document.body.addEventListener(
