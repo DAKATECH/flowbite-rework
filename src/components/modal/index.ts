@@ -247,7 +247,7 @@ export function initModals(parent = document) {
     });
 
     // support pre v1.6.0 data-modal-toggle initialization
-    document.querySelectorAll('[data-modal-toggle]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-modal-toggle]').forEach(($triggerEl) => {
         const modalId = $triggerEl.getAttribute('data-modal-toggle');
         const $modalEl = document.getElementById(modalId);
 
@@ -286,7 +286,7 @@ export function initModals(parent = document) {
     });
 
     // show modal on click if exists based on id
-    document.querySelectorAll('[data-modal-show]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-modal-show]').forEach(($triggerEl) => {
         const modalId = $triggerEl.getAttribute('data-modal-show');
         const $modalEl = document.getElementById(modalId);
 
@@ -314,7 +314,7 @@ export function initModals(parent = document) {
     });
 
     // hide modal on click if exists based on id
-    document.querySelectorAll('[data-modal-hide]').forEach(($triggerEl) => {
+    parent.querySelectorAll('[data-modal-hide]').forEach(($triggerEl) => {
         const modalId = $triggerEl.getAttribute('data-modal-hide');
         const $modalEl = document.getElementById(modalId);
 
