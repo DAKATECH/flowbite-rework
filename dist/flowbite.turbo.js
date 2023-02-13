@@ -3591,7 +3591,7 @@ function initModals(parent) {
         }
     });
     // support pre v1.6.0 data-modal-toggle initialization
-    document.querySelectorAll('[data-modal-toggle]').forEach(function ($triggerEl) {
+    parent.querySelectorAll('[data-modal-toggle]').forEach(function ($triggerEl) {
         var modalId = $triggerEl.getAttribute('data-modal-toggle');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
@@ -3619,7 +3619,7 @@ function initModals(parent) {
         }
     });
     // show modal on click if exists based on id
-    document.querySelectorAll('[data-modal-show]').forEach(function ($triggerEl) {
+    parent.querySelectorAll('[data-modal-show]').forEach(function ($triggerEl) {
         var modalId = $triggerEl.getAttribute('data-modal-show');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
@@ -3640,7 +3640,7 @@ function initModals(parent) {
         }
     });
     // hide modal on click if exists based on id
-    document.querySelectorAll('[data-modal-hide]').forEach(function ($triggerEl) {
+    parent.querySelectorAll('[data-modal-hide]').forEach(function ($triggerEl) {
         var modalId = $triggerEl.getAttribute('data-modal-hide');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
