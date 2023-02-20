@@ -2094,7 +2094,7 @@ var popper_lite_createPopper = /*#__PURE__*/popperGenerator({
 /***/ }),
 
 /***/ 902:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -2110,6 +2110,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initAccordions = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     alwaysOpen: false,
     activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
@@ -2211,6 +2212,9 @@ if (typeof window !== 'undefined') {
 function initAccordions(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-accordion]').forEach(function ($accordionEl) {
+        if ((0, init_1.is_init)($accordionEl))
+            return;
+        (0, init_1.mark_as_init)($accordionEl);
         var alwaysOpen = $accordionEl.getAttribute('data-accordion');
         var activeClasses = $accordionEl.getAttribute('data-active-classes');
         var inactiveClasses = $accordionEl.getAttribute('data-inactive-classes');
@@ -2247,7 +2251,7 @@ exports["default"] = Accordion;
 /***/ }),
 
 /***/ 33:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -2263,6 +2267,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initCarousels = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     defaultPosition: 0,
     indicators: {
@@ -2440,6 +2445,9 @@ if (typeof window !== 'undefined') {
 function initCarousels(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-carousel]').forEach(function ($carouselEl) {
+        if ((0, init_1.is_init)($carouselEl))
+            return;
+        (0, init_1.mark_as_init)($carouselEl);
         var interval = $carouselEl.getAttribute('data-carousel-interval');
         var slide = $carouselEl.getAttribute('data-carousel') === 'slide'
             ? true
@@ -2499,7 +2507,7 @@ exports["default"] = Carousel;
 /***/ }),
 
 /***/ 922:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -2515,6 +2523,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initCollapses = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     onCollapse: function () { },
     onExpand: function () { },
@@ -2585,6 +2594,9 @@ function initCollapses(parent) {
     parent
         .querySelectorAll('[data-collapse-toggle]')
         .forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var targetId = $triggerEl.getAttribute('data-collapse-toggle');
         var $targetEl = document.getElementById(targetId);
         // check if the target element exists
@@ -2603,7 +2615,7 @@ exports["default"] = Collapse;
 /***/ }),
 
 /***/ 556:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -2619,6 +2631,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initDials = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     triggerType: 'hover',
     onShow: function () { },
@@ -2723,6 +2736,9 @@ if (typeof window !== 'undefined') {
 function initDials(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-dial-init]').forEach(function ($parentEl) {
+        if ((0, init_1.is_init)($parentEl))
+            return;
+        (0, init_1.mark_as_init)($parentEl);
         var $triggerEl = $parentEl.querySelector('[data-dial-toggle]');
         if ($triggerEl) {
             var dialId = $triggerEl.getAttribute('data-dial-toggle');
@@ -2751,7 +2767,7 @@ exports["default"] = Dial;
 /***/ }),
 
 /***/ 791:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -2767,6 +2783,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initDismisses = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     transition: 'transition-opacity',
     duration: 300,
@@ -2808,6 +2825,9 @@ if (typeof window !== 'undefined') {
 function initDismisses(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-dismiss-target]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var targetId = $triggerEl.getAttribute('data-dismiss-target');
         var $dismissEl = document.querySelector(targetId);
         if ($dismissEl) {
@@ -2825,7 +2845,7 @@ exports["default"] = Dismiss;
 /***/ }),
 
 /***/ 340:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -2841,6 +2861,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initDrawers = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     placement: 'left',
     bodyScrolling: false,
@@ -3038,6 +3059,9 @@ function initDrawers(parent) {
     if (parent === void 0) { parent = document; }
     var drawerInstances = [];
     parent.querySelectorAll('[data-drawer-target]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         // mandatory
         var drawerId = $triggerEl.getAttribute('data-drawer-target');
         var $drawerEl = document.getElementById(drawerId);
@@ -3080,6 +3104,9 @@ function initDrawers(parent) {
         }
     });
     parent.querySelectorAll('[data-drawer-toggle]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var drawerId = $triggerEl.getAttribute('data-drawer-toggle');
         var $drawerEl = document.getElementById(drawerId);
         if ($drawerEl) {
@@ -3100,6 +3127,9 @@ function initDrawers(parent) {
     parent
         .querySelectorAll('[data-drawer-dismiss], [data-drawer-hide]')
         .forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var drawerId = $triggerEl.getAttribute('data-drawer-dismiss')
             ? $triggerEl.getAttribute('data-drawer-dismiss')
             : $triggerEl.getAttribute('data-drawer-hide');
@@ -3120,6 +3150,9 @@ function initDrawers(parent) {
         }
     });
     parent.querySelectorAll('[data-drawer-show]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var drawerId = $triggerEl.getAttribute('data-drawer-show');
         var $drawerEl = document.getElementById(drawerId);
         if ($drawerEl) {
@@ -3172,6 +3205,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initDropdowns = void 0;
 /* eslint-disable @typescript-eslint/no-empty-function */
 var core_1 = __webpack_require__(853);
+var init_1 = __webpack_require__(886);
 var Default = {
     placement: 'bottom',
     triggerType: 'click',
@@ -3354,6 +3388,9 @@ function initDropdowns(parent) {
     parent
         .querySelectorAll('[data-dropdown-toggle]')
         .forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var dropdownId = $triggerEl.getAttribute('data-dropdown-toggle');
         var $dropdownEl = document.getElementById(dropdownId);
         if ($dropdownEl) {
@@ -3388,7 +3425,7 @@ exports["default"] = Dropdown;
 /***/ }),
 
 /***/ 16:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -3404,6 +3441,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initModals = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     placement: 'center',
     backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
@@ -3569,6 +3607,9 @@ function initModals(parent) {
     var modalInstances = [];
     // initiate modal based on data-modal-target
     parent.querySelectorAll('[data-modal-target]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var modalId = $triggerEl.getAttribute('data-modal-target');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
@@ -3592,6 +3633,9 @@ function initModals(parent) {
     });
     // support pre v1.6.0 data-modal-toggle initialization
     parent.querySelectorAll('[data-modal-toggle]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var modalId = $triggerEl.getAttribute('data-modal-toggle');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
@@ -3620,6 +3664,9 @@ function initModals(parent) {
     });
     // show modal on click if exists based on id
     parent.querySelectorAll('[data-modal-show]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var modalId = $triggerEl.getAttribute('data-modal-show');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
@@ -3641,6 +3688,9 @@ function initModals(parent) {
     });
     // hide modal on click if exists based on id
     parent.querySelectorAll('[data-modal-hide]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var modalId = $triggerEl.getAttribute('data-modal-hide');
         var $modalEl = document.getElementById(modalId);
         if ($modalEl) {
@@ -3695,6 +3745,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initPopovers = void 0;
 /* eslint-disable @typescript-eslint/no-empty-function */
 var core_1 = __webpack_require__(853);
+var init_1 = __webpack_require__(886);
 var Default = {
     placement: 'top',
     offset: 10,
@@ -3854,6 +3905,9 @@ if (typeof window !== 'undefined') {
 function initPopovers(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-popover-target]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var popoverID = $triggerEl.getAttribute('data-popover-target');
         var $popoverEl = document.getElementById(popoverID);
         if ($popoverEl) {
@@ -3880,7 +3934,7 @@ exports["default"] = Popover;
 /***/ }),
 
 /***/ 247:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -3896,6 +3950,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initTabs = void 0;
+var init_1 = __webpack_require__(886);
 var Default = {
     defaultTabId: null,
     activeClasses: 'bg-primary-700 hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700 text-white',
@@ -3973,6 +4028,9 @@ if (typeof window !== 'undefined') {
 function initTabs(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-tabs-toggle]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var tabItems = [];
         var defaultTabId = null;
         $triggerEl
@@ -4028,6 +4086,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initTooltips = void 0;
 /* eslint-disable @typescript-eslint/no-empty-function */
 var core_1 = __webpack_require__(853);
+var init_1 = __webpack_require__(886);
 var Default = {
     placement: 'top',
     triggerType: 'hover',
@@ -4171,6 +4230,9 @@ if (typeof window !== 'undefined') {
 function initTooltips(parent) {
     if (parent === void 0) { parent = document; }
     parent.querySelectorAll('[data-tooltip-target]').forEach(function ($triggerEl) {
+        if ((0, init_1.is_init)($triggerEl))
+            return;
+        (0, init_1.mark_as_init)($triggerEl);
         var tooltipId = $triggerEl.getAttribute('data-tooltip-target');
         var $tooltipEl = document.getElementById(tooltipId);
         if ($tooltipEl) {
@@ -4216,6 +4278,24 @@ var Events = /** @class */ (function () {
     return Events;
 }());
 exports["default"] = Events;
+
+
+/***/ }),
+
+/***/ 886:
+/***/ (function(__unused_webpack_module, exports) {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.is_init = exports.mark_as_init = void 0;
+function mark_as_init(element) {
+    element.setAttribute('data-flowbite-init', 'true');
+}
+exports.mark_as_init = mark_as_init;
+function is_init(element) {
+    return element.getAttribute('data-flowbite-init') === 'true';
+}
+exports.is_init = is_init;
 
 
 /***/ })
