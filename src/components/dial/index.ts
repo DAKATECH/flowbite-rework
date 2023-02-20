@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { DialOptions, DialTriggerType } from './types';
 import { DialInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: DialOptions = {
     triggerType: 'hover',
@@ -123,6 +124,9 @@ if (typeof window !== 'undefined') {
 
 export function initDials(parent = document) {
     parent.querySelectorAll('[data-dial-init]').forEach(($parentEl) => {
+        if (is_init($parentEl)) return;
+        mark_as_init($parentEl)
+        
         const $triggerEl = $parentEl.querySelector('[data-dial-toggle]');
 
         if ($triggerEl) {

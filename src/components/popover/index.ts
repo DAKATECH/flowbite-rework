@@ -6,6 +6,7 @@ import type {
 } from '@popperjs/core';
 import type { PopoverOptions } from './types';
 import { PopoverInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: PopoverOptions = {
     placement: 'top',
@@ -211,6 +212,9 @@ if (typeof window !== 'undefined') {
 
 export function initPopovers(parent = document) {
     parent.querySelectorAll('[data-popover-target]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const popoverID = $triggerEl.getAttribute('data-popover-target');
         const $popoverEl = document.getElementById(popoverID);
 

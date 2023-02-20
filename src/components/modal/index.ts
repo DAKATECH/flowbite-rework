@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { ModalInstance, ModalOptions } from './types';
 import { ModalInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: ModalOptions = {
     placement: 'center',
@@ -218,6 +219,9 @@ export function initModals(parent = document) {
 
     // initiate modal based on data-modal-target
     parent.querySelectorAll('[data-modal-target]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const modalId = $triggerEl.getAttribute('data-modal-target');
         const $modalEl = document.getElementById(modalId);
 
@@ -248,6 +252,9 @@ export function initModals(parent = document) {
 
     // support pre v1.6.0 data-modal-toggle initialization
     parent.querySelectorAll('[data-modal-toggle]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const modalId = $triggerEl.getAttribute('data-modal-toggle');
         const $modalEl = document.getElementById(modalId);
 
@@ -287,6 +294,9 @@ export function initModals(parent = document) {
 
     // show modal on click if exists based on id
     parent.querySelectorAll('[data-modal-show]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const modalId = $triggerEl.getAttribute('data-modal-show');
         const $modalEl = document.getElementById(modalId);
 
@@ -315,6 +325,9 @@ export function initModals(parent = document) {
 
     // hide modal on click if exists based on id
     parent.querySelectorAll('[data-modal-hide]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const modalId = $triggerEl.getAttribute('data-modal-hide');
         const $modalEl = document.getElementById(modalId);
 

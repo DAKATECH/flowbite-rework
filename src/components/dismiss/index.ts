@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { DismissOptions } from './types';
 import { DismissInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: DismissOptions = {
     transition: 'transition-opacity',
@@ -55,6 +56,9 @@ if (typeof window !== 'undefined') {
 
 export function initDismisses(parent = document) {
     parent.querySelectorAll('[data-dismiss-target]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl);
+
         const targetId = $triggerEl.getAttribute('data-dismiss-target');
         const $dismissEl = document.querySelector(targetId);
 

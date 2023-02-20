@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { DrawerInstance, DrawerOptions, PlacementClasses } from './types';
 import { DrawerInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: DrawerOptions = {
     placement: 'left',
@@ -239,6 +240,9 @@ const getDrawerInstance = (id: string, instances: DrawerInstance[]) => {
 export function initDrawers(parent = document) {
     const drawerInstances = [] as DrawerInstance[];
     parent.querySelectorAll('[data-drawer-target]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl);
+
         // mandatory
         const drawerId = $triggerEl.getAttribute('data-drawer-target');
         const $drawerEl = document.getElementById(drawerId);
@@ -289,6 +293,9 @@ export function initDrawers(parent = document) {
     });
 
     parent.querySelectorAll('[data-drawer-toggle]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl);
+
         const drawerId = $triggerEl.getAttribute('data-drawer-toggle');
         const $drawerEl = document.getElementById(drawerId);
 
@@ -317,6 +324,9 @@ export function initDrawers(parent = document) {
     parent
         .querySelectorAll('[data-drawer-dismiss], [data-drawer-hide]')
         .forEach(($triggerEl) => {
+            if (is_init($triggerEl)) return;
+            mark_as_init($triggerEl);
+
             const drawerId = $triggerEl.getAttribute('data-drawer-dismiss')
                 ? $triggerEl.getAttribute('data-drawer-dismiss')
                 : $triggerEl.getAttribute('data-drawer-hide');
@@ -342,6 +352,9 @@ export function initDrawers(parent = document) {
         });
 
     parent.querySelectorAll('[data-drawer-show]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl);
+
         const drawerId = $triggerEl.getAttribute('data-drawer-show');
         const $drawerEl = document.getElementById(drawerId);
 

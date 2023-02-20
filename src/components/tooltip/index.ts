@@ -6,6 +6,7 @@ import type {
 } from '@popperjs/core';
 import type { TooltipOptions } from './types';
 import { TooltipInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: TooltipOptions = {
     placement: 'top',
@@ -194,6 +195,9 @@ if (typeof window !== 'undefined') {
 
 export function initTooltips(parent = document) {
     parent.querySelectorAll('[data-tooltip-target]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const tooltipId = $triggerEl.getAttribute('data-tooltip-target');
         const $tooltipEl = document.getElementById(tooltipId);
 

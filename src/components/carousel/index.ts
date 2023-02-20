@@ -6,6 +6,7 @@ import type {
     RotationItems,
 } from './types';
 import { CarouselInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: CarouselOptions = {
     defaultPosition: 0,
@@ -246,6 +247,9 @@ if (typeof window !== 'undefined') {
 
 export function initCarousels(parent = document) {
     parent.querySelectorAll('[data-carousel]').forEach(($carouselEl) => {
+        if (is_init($carouselEl)) return;
+        mark_as_init($carouselEl);
+        
         const interval = $carouselEl.getAttribute('data-carousel-interval');
         const slide =
             $carouselEl.getAttribute('data-carousel') === 'slide'

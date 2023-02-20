@@ -6,6 +6,7 @@ import type {
 } from '@popperjs/core';
 import type { DropdownOptions } from './types';
 import { DropdownInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: DropdownOptions = {
     placement: 'bottom',
@@ -233,6 +234,9 @@ export function initDropdowns(parent = document) {
     parent
         .querySelectorAll('[data-dropdown-toggle]')
         .forEach(($triggerEl) => {
+            if (is_init($triggerEl)) return;
+            mark_as_init($triggerEl)
+
             const dropdownId = $triggerEl.getAttribute('data-dropdown-toggle');
             const $dropdownEl = document.getElementById(dropdownId);
 

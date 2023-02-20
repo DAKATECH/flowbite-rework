@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { AccordionItem, AccordionOptions } from './types';
 import { AccordionInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: AccordionOptions = {
     alwaysOpen: false,
@@ -128,6 +129,9 @@ if (typeof window !== 'undefined') {
 
 export function initAccordions(parent = document) {
     parent.querySelectorAll('[data-accordion]').forEach(($accordionEl) => {
+        if (is_init($accordionEl)) return;
+        mark_as_init($accordionEl)
+
         const alwaysOpen = $accordionEl.getAttribute('data-accordion');
         const activeClasses = $accordionEl.getAttribute('data-active-classes');
         const inactiveClasses = $accordionEl.getAttribute(

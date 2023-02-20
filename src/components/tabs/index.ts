@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { TabItem, TabsOptions } from './types';
 import { TabsInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: TabsOptions = {
     defaultTabId: null,
@@ -97,6 +98,9 @@ if (typeof window !== 'undefined') {
 
 export function initTabs(parent = document) {
     parent.querySelectorAll('[data-tabs-toggle]').forEach(($triggerEl) => {
+        if (is_init($triggerEl)) return;
+        mark_as_init($triggerEl)
+
         const tabItems: TabItem[] = [];
         let defaultTabId = null;
         $triggerEl

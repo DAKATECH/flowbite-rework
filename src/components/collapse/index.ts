@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import type { CollapseOptions } from './types';
 import { CollapseInterface } from './interface';
+import { is_init, mark_as_init } from "../../dom/init";
 
 const Default: CollapseOptions = {
     onCollapse: () => {},
@@ -83,6 +84,9 @@ export function initCollapses(parent = document) {
     parent
         .querySelectorAll('[data-collapse-toggle]')
         .forEach(($triggerEl) => {
+            if (is_init($triggerEl)) return;
+            mark_as_init($triggerEl);
+
             const targetId = $triggerEl.getAttribute('data-collapse-toggle');
             const $targetEl = document.getElementById(targetId);
 
